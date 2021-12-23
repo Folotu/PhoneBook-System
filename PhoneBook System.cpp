@@ -130,13 +130,45 @@ public:
         rename("temp.dat", "PhoneBook.dat");
     }
 
+    void modifyRecord()
+    {
+        fstream fio;
+        int, flag(0), pos;
+        fio.open("PhoneBook.dat", ios::out | ios::binary | ios::in);
+
+        cout << "Enter Serial Number of Record To modify: ";
+        cin >> n;
+
+        while (fio.read((char*)&b, sizeof(b)))
+        {
+            pos = fio.tellg();
+            if (n == b.getSrNo())
+            {
+                cout << "\nThe following record will be modified......\n";
+                b.showData();
+                flag++;
+                cout << "\nRe-Enter the New Details.............\n";
+                b.storeData();
+                fio.seekg(pos - sizeof(b));
+                fio.write((char*)&b, sizeof(b));
+                cout << "\n.......Data Modified Successfully..........\n";
+            }
+        }
+        fio.close();
+        if (flag == 0)
+            cout << "\nThe Record of Serial Number " << n << " is not in file........\n";
+            cout << "\n Reading of Data file Completed...........\n";
+        
+    }
+
+
 void menu()
 {
     int ch;
 
     do
     {
-        
+        clrscr();
     }
 }
 
