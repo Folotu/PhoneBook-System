@@ -6,12 +6,7 @@
 using namespace std;
 using std::cout;
 
-void menu();
 void SearchBySrNo();
-void DisplayRecord();
-void SearchBySrNo();
-void deleteRecord();
-void modifyRecord();
 
 class Phonebook
 {
@@ -174,46 +169,11 @@ void menu()
     do
     {
         clrscr();
-
-        cout << "........................................................................\n";
-        cout << "                                  PHONE BOOK MANAGEMENT\n";
-
-        cout << ".........................................................................\n";
-        cout ":::::::::::::::::::::::::::::::::::::::::::PROGRAM MENU:::::::::::::::::::::::::\n";
-        cout << "0. Exit\n";
-        cout << "1. Save New Phone Record\n";
-        cout << "2. Display All Saved Records\n";
-        cout << "3. Search specific Record\n";
-        cout << "4. Delete Specific Record\n";
-        cout << "5. Modify Existing Record\n";
-        cin >> ch;
-        clrscr();
-
-        switch (ch)
-        {
-        case 1: AddNumber();
-            break;
-
-        case 2: DisplayRecords();
-            break;
-
-        case 3: SearchBySrNo();
-            break;
-
-        case 4: DeleteRecord()
-            break;
-
-        case 5: modifyRecord()
-            break;
-
-        }
-        getch();
-
-    } while (ch);
+    }
 }
 
 int main()
 {
-    menu();
+    
 }
 

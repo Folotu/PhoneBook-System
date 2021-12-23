@@ -6,12 +6,7 @@
 using namespace std;
 using std::cout;
 
-void menu();
 void SearchBySrNo();
-void DisplayRecord();
-void SearchBySrNo();
-void deleteRecord();
-void modifyRecord();
 
 class Phonebook
 {
@@ -135,85 +130,18 @@ public:
         rename("temp.dat", "PhoneBook.dat");
     }
 
-    void modifyRecord()
-    {
-        fstream fio;
-        int, flag(0), pos;
-        fio.open("PhoneBook.dat", ios::out | ios::binary | ios::in);
-
-        cout << "Enter Serial Number of Record To modify: ";
-        cin >> n;
-
-        while (fio.read((char*)&b, sizeof(b)))
-        {
-            pos = fio.tellg();
-            if (n == b.getSrNo())
-            {
-                cout << "\nThe following record will be modified......\n";
-                b.showData();
-                flag++;
-                cout << "\nRe-Enter the New Details.............\n";
-                b.storeData();
-                fio.seekg(pos - sizeof(b));
-                fio.write((char*)&b, sizeof(b));
-                cout << "\n.......Data Modified Successfully..........\n";
-            }
-        }
-        fio.close();
-        if (flag == 0)
-            cout << "\nThe Record of Serial Number " << n << " is not in file........\n";
-            cout << "\n Reading of Data file Completed...........\n";
-        
-    }
-
-
 void menu()
 {
     int ch;
 
     do
     {
-        clrscr();
-
-        cout << "........................................................................\n";
-        cout << "                                  PHONE BOOK MANAGEMENT\n";
-
-        cout << ".........................................................................\n";
-        cout ":::::::::::::::::::::::::::::::::::::::::::PROGRAM MENU:::::::::::::::::::::::::\n";
-        cout << "0. Exit\n";
-        cout << "1. Save New Phone Record\n";
-        cout << "2. Display All Saved Records\n";
-        cout << "3. Search specific Record\n";
-        cout << "4. Delete Specific Record\n";
-        cout << "5. Modify Existing Record\n";
-        cin >> ch;
-        clrscr();
-
-        switch (ch)
-        {
-        case 1: AddNumber();
-            break;
-
-        case 2: DisplayRecords();
-            break;
-
-        case 3: SearchBySrNo();
-            break;
-
-        case 4: DeleteRecord()
-            break;
-
-        case 5: modifyRecord()
-            break;
-
-        }
-        getch();
-
-    } while (ch);
+        
+    }
 }
 
 int main()
 {
-    menu();
+    
 }
 
