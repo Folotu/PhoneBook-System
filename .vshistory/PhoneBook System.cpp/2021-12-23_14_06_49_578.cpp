@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+//#include <fstream.h>
 #include <stdio.h>
 #include <conio.h>
 
@@ -149,10 +150,10 @@ public:
             pos = fio.tellg();
             if (n == b.getSrNo())
             {
-                cout << "\n The following record will be modified......\n";
+                cout << "\nThe following record will be modified......\n";
                 b.showData();
                 flag++;
-                cout << "\n Re-Enter the New Details.............\n";
+                cout << "\nRe-Enter the New Details.............\n";
                 b.storeData();
                 fio.seekg(pos - sizeof(b));
                 fio.write((char*)&b, sizeof(b));

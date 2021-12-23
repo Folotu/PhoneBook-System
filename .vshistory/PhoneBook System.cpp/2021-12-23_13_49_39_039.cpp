@@ -7,9 +7,9 @@ using namespace std;
 using std::cout;
 
 void menu();
-void DisplayRecords();
+void DisplayRecord();
 void SearchBySrNo();
-void DeleteRecord();
+void deleteRecord();
 void modifyRecord();
 
 class Phonebook
@@ -74,7 +74,7 @@ public:
         cout << "\nReading of Data file completed..........\n";      
     }
 
-    void SearchBySrNo()
+    void SearchBySrNo();
     {
         ifstream fin;
         int n, flag(0);
@@ -104,7 +104,6 @@ public:
     void DeleteRecord()
     {
         ifstream fin;
-        ofstream fout;
         int n, flag(0);
 
         fin.open("PhoneBook.dat", ios::out | ios::binary | ios::app);
@@ -117,7 +116,7 @@ public:
             if (n == b.getSrNo())
             {
                 cout << "\nThe following record is deleted.........\n";
-                b.showData();
+                b, showData();
                 flag = flag + 1;
             }
             else
@@ -138,7 +137,7 @@ public:
     void modifyRecord()
     {
         fstream fio;
-        int n, flag(0), pos;
+        int, flag(0), pos;
         fio.open("PhoneBook.dat", ios::out | ios::binary | ios::in);
 
         cout << "Enter Serial Number of Record To modify: ";
@@ -149,10 +148,10 @@ public:
             pos = fio.tellg();
             if (n == b.getSrNo())
             {
-                cout << "\n The following record will be modified......\n";
+                cout << "\nThe following record will be modified......\n";
                 b.showData();
                 flag++;
-                cout << "\n Re-Enter the New Details.............\n";
+                cout << "\nRe-Enter the New Details.............\n";
                 b.storeData();
                 fio.seekg(pos - sizeof(b));
                 fio.write((char*)&b, sizeof(b));
@@ -173,13 +172,13 @@ void menu()
 
     do
     {
-       // clrscr();
+        clrscr();
 
         cout << "........................................................................\n";
         cout << "                                  PHONE BOOK MANAGEMENT\n";
 
         cout << ".........................................................................\n";
-        cout <<":::::::::::::::::::::::::::::::::::::::::::PROGRAM MENU:::::::::::::::::::::::::\n";
+        cout ":::::::::::::::::::::::::::::::::::::::::::PROGRAM MENU:::::::::::::::::::::::::\n";
         cout << "0. Exit\n";
         cout << "1. Save New Phone Record\n";
         cout << "2. Display All Saved Records\n";
@@ -187,7 +186,7 @@ void menu()
         cout << "4. Delete Specific Record\n";
         cout << "5. Modify Existing Record\n";
         cin >> ch;
-        //clrscr();
+        clrscr();
 
         switch (ch)
         {
@@ -200,10 +199,10 @@ void menu()
         case 3: SearchBySrNo();
             break;
 
-        case 4: DeleteRecord();
+        case 4: DeleteRecord()
             break;
 
-        case 5: modifyRecord();
+        case 5: modifyRecord()
             break;
 
         }
