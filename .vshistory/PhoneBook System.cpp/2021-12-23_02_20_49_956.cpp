@@ -76,7 +76,7 @@ public:
         int n, flag(0);
 
         fin.open("PhoneBook.dat", ios::out | ios::binary | ios::app);
-        cout << "Enter Serial Number of Record to Display: ";
+        cout << "Enter Serical Number of Record to Display: ";
         cin >> n;
 
         while (fin.read((char*)&b, sizeof(b)))
@@ -97,38 +97,6 @@ public:
         }
     }
 
-    void DeleteRecord()
-    {
-        ifstream fin;
-        int n, flag(0);
-
-        fin.open("PhoneBook.dat", ios::out | ios::binary | ios::app);
-        fout.open("temp.dat", ios::out | ios::binary);
-        cout << "Enter Serial Number of Record to delete : ";
-        cin >> n;
-        
-        while (fin.read((char*)&b, sizeof(b)))
-        {
-            if (n == b.getSrNo())
-            {
-                cout << "\nThe following record is deleted.........\n";
-                b, showData();
-                flag = flag + 1;
-            }
-            else
-            {
-                fout.write((char*)&b, sizeof(b));
-            }
-        }
-        fin.close();
-        fout.close();
-
-        if (flag == 0)
-            cout << "\The Record of Serial Number " << n << " is not in file........\n";
-        cout << "\nReading of Data file Completed..........\n";
-        remove("PhoneBook.dat");
-        rename("temp.dat", "PhoneBook.dat");
-    }
 
 void menu()
 {
